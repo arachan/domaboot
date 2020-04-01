@@ -28,24 +28,33 @@ public class ControllerTest {
     public void test() throws Exception {
         {
             // Select
-            List<Customer> customers = restTemplate.exchange("http://localhost:" + port + "/customer", HttpMethod.GET, HttpEntity.EMPTY, new ParameterizedTypeReference<List<Customer>>() {
+            List<Customer> customers = restTemplate.exchange("http://localhost:" + port + "/", HttpMethod.GET, HttpEntity.EMPTY, new ParameterizedTypeReference<List<Customer>>() {
             }).getBody();
-            assertThat(customers).hasSize(1);
+            assertThat(customers).hasSize(2);
             assertThat(customers).extracting("name").containsExactly("お得意先さん");
         }
 
         {
             // Update
-            List<Customer> customers = restTemplate.exchange("http://localhost:" + port + "/customer/update?name=Kyoto", HttpMethod.GET, HttpEntity.EMPTY, new ParameterizedTypeReference<List<Customer>>() {
+            List<Customer> customers = restTemplate.exchange("http://localhost:" + port + "/update?name=Kyoto", HttpMethod.GET, HttpEntity.EMPTY, new ParameterizedTypeReference<List<Customer>>() {
             }).getBody();
-            assertThat(customers).hasSize(1);
+            assertThat(customers).hasSize(2);
             assertThat(customers).extracting("name").containsExactly("Kyoto");
         }
-//        {
-//        	// Insert
-//        	List<Customer> customers = restTemplate.exchange("http://localhost:" + port + "/customer/insert?name=Kyoto", HttpMethod.GET, HttpEntity.EMPTY, new ParameterizedTypeReference<List<Customer>>() {
-//            }).getBody();
-//        	
-//        }
+        {
+        	// Insert
+        	List<Customer> customers = restTemplate.exchange("http://localhost:" + port + "/insert?name=Tokyo", HttpMethod.GET, HttpEntity.EMPTY, new ParameterizedTypeReference<List<Customer>>() {
+            }).getBody();
+        	assertThat(customers).hasSize(3);
+        	assertThat(customers).extracting("name").containsExactly("Tokyo");
+        	
+        }
+        {
+        	// Delete
+        	List<Customer> customers = restTemplate.exchange("http://localhost:" + port + "/delete?id=1", HttpMethod.GET, HttpEntity.EMPTY, new ParameterizedTypeReference<List<Customer>>() {
+            }).getBody();
+        	assertThat(customers).hasSize(2);
+        	assertThat(customers).extracting("name").containsExactly("Tokyo");	
+        }
     }
 }
