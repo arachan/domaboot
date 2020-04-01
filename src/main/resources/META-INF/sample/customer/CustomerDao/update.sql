@@ -1,0 +1,1 @@
+update 得意先m set 得意先名=/* customer.name */'hoge' where 得意先cd=/* customer.id */1

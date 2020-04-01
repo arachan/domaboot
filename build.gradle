@@ -1,0 +1,62 @@
+plugins {
+	id 'org.springframework.boot' version '2.2.5.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+	id 'java'
+	id 'idea'
+}
+
+group = 'domaboot'
+//version = '2.17.1-SNAPSHOT'
+sourceCompatibility = '11'
+ext.dependentVersion = '2.28.0'
+ext.domaResources = ['doma.compile.config', 'META-INF/**/*.sql', 'META-INF/**/*.script']
+
+task copyDomaResources(type: Sync) {
+    from sourceSets.main.resources.srcDirs // src/main/resouces/*
+    into compileJava.destinationDir // build/classes/java/main/
+    include domaResources
+}
+
+compileJava {
+    // copy doma related resources before compileJava
+    dependsOn copyDomaResources
+    options.encoding = 'UTF-8'
+}
+
+processResources {
+    // exclude doma related resources
+    exclude domaResources
+}
+
+compileTestJava {
+    options.encoding = 'UTF-8'
+    // disable the annotation processors during the test run
+    options.compilerArgs = ['-proc:none']
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+    maven { url "https://repo.spring.io/libs-snapshot" }
+    maven { url "https://repo.spring.io/milestone" }
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-devtools'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+    implementation 'org.seasar.doma.boot:doma-spring-boot-starter:1.2.1'
+    //domaの注釈処理を実行することを示す 必須
+    annotationProcessor "org.seasar.doma:doma:${dependentVersion}"
+    // domaへの依存を示す
+    implementation "org.seasar.doma:doma:${dependentVersion}"
+    runtimeOnly 'com.h2database:h2'
+    //testImplementation 'junit:junit'
+    //testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+}
+
+apply from:'eclipse.gradle'

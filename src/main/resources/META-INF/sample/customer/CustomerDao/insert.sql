@@ -1,0 +1,1 @@
+INSERT INTO 得意先m(得意先名)VALUES(/* customer.name */'hoge');
