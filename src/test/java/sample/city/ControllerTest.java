@@ -16,7 +16,6 @@ import org.springframework.http.HttpMethod;
 
 import sample.customer.Customer;
 
-//@RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 public class ControllerTest {
     @Value("${local.server.port}")
