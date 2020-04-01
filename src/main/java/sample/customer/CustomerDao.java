@@ -3,6 +3,7 @@ package sample.customer;
 import java.util.List;
 
 import org.seasar.doma.Dao;
+import org.seasar.doma.Delete;
 import org.seasar.doma.Insert;
 import org.seasar.doma.Select;
 import org.seasar.doma.Update;
@@ -19,4 +20,8 @@ public interface CustomerDao {
 	
 	@Update(sqlFile=true)
 	int update(Customer customer);
+	
+	@Delete(sqlFile=true)
+	int delete(Integer id);
+	
 }

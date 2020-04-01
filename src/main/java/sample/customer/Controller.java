@@ -27,7 +27,7 @@ public class Controller {
     	Customer customer = new Customer();
     	customer.id=id;
     	customer.name=name;
-        customerdao.insert(customer);
+        customerdao.update(customer);
         return customerdao.selectAll();
     }
     
@@ -42,10 +42,8 @@ public class Controller {
     
     @RequestMapping("/delete")
     public List<Customer> del(
-    		@RequestParam("name") String name) {
-    	Customer customer = new Customer();
-    	customer.name=name;
-        customerdao.insert(customer);
+    		@RequestParam("id") Integer id) {
+        customerdao.delete(id);
         return customerdao.selectAll();
     }
 }

@@ -1,0 +1,1 @@
+delete from 得意先m where 得意先cd= /* id */1
