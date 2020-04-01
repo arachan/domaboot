@@ -9,14 +9,14 @@ Clone
 --------
 
 ```sh
-git clone https://github.com/domaframework/spring-boot-sample.git
+git clone https://github.com/arachan/domaboot.git
 ```
 
 Run
 --------
 
 ```sh
-cd spring-boot-sample
+cd domaspringboot
 ```
 
 ```sh
