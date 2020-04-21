@@ -65,9 +65,10 @@ Generate all Eclipse files with Gradle.
 
 1. right clike on build.gradle
 2. Refresh Gradle Project
-3. ./gradlew eclipse
-4. right click on project > Refresh
-5. right click on project > Run As > Spring Boot Apps
+3. ./gradlew cleaneclipse
+4. ./gradlew eclipse
+5. right click on project > Refresh
+6. right click on project > Run As > Spring Boot Apps
 
 License
 -------
