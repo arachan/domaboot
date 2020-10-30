@@ -58,17 +58,16 @@ Use Eclipse 4.4 or above.
 Generate all Eclipse files with Gradle.
 
 ```sh
-./gradlew eclipse
+./gradlew cleanEclipse eclipse
 ```
 
 ### Step
 
 1. right click on build.gradle
 2. Refresh Gradle Project
-3. ./gradlew cleaneclipse
-4. ./gradlew eclipse
-5. right click on project > Refresh
-6. right click on project > Run As > Spring Boot Apps
+3. ./gradlew cleanEclipse eclipse
+4. right click on project > Refresh
+5. right click on project > Run As > Spring Boot Apps
 
 License
 -------
