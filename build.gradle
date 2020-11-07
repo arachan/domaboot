@@ -43,7 +43,7 @@ dependencies {
     annotationProcessor "org.seasar.doma:doma-processor:${domaVersion}"
     // domaへの依存を示す
     implementation "org.seasar.doma:doma-core:${domaVersion}"
-    runtimeOnly 'com.h2database:h2'
+    runtimeOnly 'com.h2database:h2:1.4.200'
     //testImplementation 'junit:junit'
     //testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
