@@ -38,14 +38,13 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-devtools'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-jdbc'
-    implementation 'org.seasar.doma.boot:doma-spring-boot-starter:1.5.0'
+    implementation 'org.seasar.doma.boot:doma-spring-boot-starter:1.4.0'
     //domaの注釈処理を実行することを示す 必須
     annotationProcessor "org.seasar.doma:doma-processor:${domaVersion}"
     // domaへの依存を示す
     implementation "org.seasar.doma:doma-core:${domaVersion}"
-    runtimeOnly 'com.h2database:h2:1.4.200'
-    //testImplementation 'junit:junit'
-    //testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    //runtimeOnly 'com.h2database:h2:1.4.200'
+	implementation 'com.h2database:h2:1.4.200'
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
