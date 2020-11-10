@@ -9,7 +9,6 @@ plugins {
 group = 'domaboot'
 //version = '2.17.1-SNAPSHOT'
 
-
 java{
 	sourceCompatibility = JavaVersion.VERSION_11
 	targetCompatibility = JavaVersion.VERSION_11
