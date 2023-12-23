@@ -43,7 +43,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-jdbc'
     implementation 'org.seasar.doma.boot:doma-spring-boot-starter:1.7.0'
     //domaの注釈処理を実行することを示す 必須
-    annotationProcessor "org.seasar.doma:doma-processor:2.54.2"
+    annotationProcessor "org.seasar.doma:doma-processor:2.55.0"
     // domaへの依存を示す
     implementation "org.seasar.doma:doma-core:2.55.0"
     //runtimeOnly 'com.h2database:h2:1.4.200'
