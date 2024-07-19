@@ -47,7 +47,7 @@ dependencies {
     // domaへの依存を示す
     implementation "org.seasar.doma:doma-core:2.60.1"
     //runtimeOnly 'com.h2database:h2:1.4.200'
-	implementation 'com.h2database:h2:2.2.224'
+	implementation 'com.h2database:h2:2.3.230'
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
